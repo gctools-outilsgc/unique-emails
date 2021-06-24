@@ -1,0 +1,7 @@
+config.py
+template.txt
+user_data/*
+notes.txt
+instructions.md
+__pycache__
+*.pyc
