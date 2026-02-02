@@ -15,7 +15,7 @@ class db_connection:
         '''
         constructor. 5432 is the port the database is accessible to in the pod.
         '''
-        db_command = "kubectl port-forward --context CollabAKSProd-admin -n account {name} {local_port}:5432".format(name = self.get_name(), local_port = config.port )
+        db_command = "kubectl port-forward --context AKS-collab-29-admin -n account {name} {local_port}:5432".format(name = self.get_name(), local_port = config.port )
         self.port = int(config.port)
         
         self.connect_to_database(db_command)
@@ -25,7 +25,7 @@ class db_connection:
         '''
         Finds the pod name
         '''
-        cmd = check_output("kubectl get pods --context CollabAKSProd-admin -n account", shell=True)
+        cmd = check_output("kubectl get pods --context AKS-collab-29-admin -n account", shell=True)
         list_of_db = cmd.decode().split("\n"[0])
 
         def startswith(var):
@@ -57,4 +57,3 @@ class db_connection:
         '''
         self.socket.close()
         self.connection.terminate()
-        
