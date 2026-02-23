@@ -7,7 +7,7 @@ from . import config
 class db_connection:
     
     def __init__(self):
-        db_command = "kubectl port-forward --context messageAKSprod-admin -n message {name} {local_port}:{ext_port}".format(name = config.name, local_port = config.local_port, ext_port = config.ext_port )
+        db_command = "kubectl port-forward --context AKS-collab-29-admin -n message {name} {local_port}:{ext_port}".format(name = config.name, local_port = config.local_port, ext_port = config.ext_port )
         self.port = int(config.local_port)
     
         self.connect_to_database(db_command)
@@ -30,3 +30,4 @@ class db_connection:
         return 1
 
         
+
